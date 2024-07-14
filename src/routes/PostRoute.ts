@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { allPost, getPost, newPost ,editPost,deletePost} from "../controllers/PostController";
+import { allPost, getPost, newPost ,editPost,deletePost} from "../controllers/PostController.ts";
 
 const postRouter= Router();
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { Login, Register, protectedRoute, verifyEmail } from "../controllers/userController";
-import { requireSignIn } from "../middlewares/auth";
+import { Login, Register, protectedRoute, verifyEmail } from "../controllers/userController.ts";
+import { requireSignIn } from "../middlewares/auth.ts";
 
 const userRouter = Router();
 

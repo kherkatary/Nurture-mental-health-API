@@ -1,8 +1,8 @@
-import userModel from "../../models/userModel";
+import userModel from "../../models/userModel.ts";
 import express from 'express'
 import crypto from 'crypto'
 import nodemailer from 'nodemailer'
-import { hashingPassword, passwordCompare } from "../helper/auth";
+import { hashingPassword, passwordCompare } from "../helper/auth.ts";
 import jwt from 'jsonwebtoken'
 const Register = async (_req: express.Request, res: express.Response): Promise<express.Response> => {
     const { name, email, password } = _req.body;

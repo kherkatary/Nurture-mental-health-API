@@ -1,5 +1,5 @@
 import express from "express";
-import postModel from "../../models/postModel";
+import postModel from "../../models/postModel.ts";
 
 const allPost = async (_req: express.Request, res: express.Response) => {
   const { limit}= _req.body;
