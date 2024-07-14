@@ -1,10 +1,10 @@
 import express from 'express'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
-import connectDb from './config/db'
-import userRouter from './src/routes/userRoute'
+import connectDb from '../config/db'
+import userRouter from './routes/userRoute'
 import cors from 'cors'
-import postRouter from './src/routes/PostRoute'
+import postRouter from './routes/PostRoute'
 const app = express()
 
 const port=process.env.PORT || 3000
