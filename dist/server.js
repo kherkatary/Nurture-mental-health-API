@@ -11,6 +11,7 @@ const userRoute_1 = __importDefault(require("./src/routes/userRoute"));
 const cors_1 = __importDefault(require("cors"));
 const PostRoute_1 = __importDefault(require("./src/routes/PostRoute"));
 const app = (0, express_1.default)();
+const port = process.env.PORT || 3000;
 //mmiddleswares
 dotenv_1.default.config();
 (0, db_1.default)();
@@ -25,6 +26,6 @@ app.get('/', (req, res) => {
     res.send("Hello Typescript");
 });
 app.listen(process.env.PORT || 3000, () => {
-    console.log(`Server Running on port:${process.env.PORT} `);
+    console.log(`Server Running on port:${port} `);
 });
 //# sourceMappingURL=server.js.map

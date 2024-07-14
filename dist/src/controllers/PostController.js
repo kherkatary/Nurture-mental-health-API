@@ -46,6 +46,8 @@ const newPost = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
         return res.status(400).send({ message: "Author required" });
     if (!content)
         return res.status(400).send({ message: "Content required" });
+    if (!cover)
+        return res.status(400).send({ message: "Cover required" });
     try {
         const newPostFetched = yield new postModel_1.default({ title, author, content, cover }).save();
         if (!newPostFetched) {
@@ -68,7 +70,7 @@ const getPost = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return res.status(404).send({ message: "Post with this ID not found" });
         return res.status(200).send({
             message: "Post fetched",
-            post,
+            post: post,
         });
     }
     catch (err) {
