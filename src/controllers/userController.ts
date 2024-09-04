@@ -22,37 +22,6 @@ const Register = async (_req: express.Request, res: express.Response): Promise<e
         const user = await new userModel({ name: name, password: hasedPassword, email: email, mailCrypto: rand }).save();
         const token = jwt.sign({ id: user._id, email: email }, process.env.SUPER_SECRET_KEY, { expiresIn: "7d" });
 
-        console.log(1);
-        const transporter = await nodemailer.createTransport({
-            service: 'outlook',
-            auth: {
-                user: 'sandeepkherkatary123@outlook.com',
-                pass: 'Sandeep2000@'
-            }
-        })
-
-        const mail = {
-            from: 'sandeepkherkatary123@outlook.com',
-            to: email,
-            subject: " Verify Your Email",
-            text: `Hi! There, You have recently visited  
-        our website and entered your email. 
-        Please follow the given link to verify your email 
-        http://localhost:8080/api/v1/auth/verify/${user._id}/${rand}  
-        Thanks`
-        }
-
-
-        console.log(1);
-        await transporter.sendMail(mail, (err: string, info: string) => {
-            console.log(1);
-            if (err) return res.status(500).send({ message: "error sending email", error: err });
-
-            else {
-                console.log(`successfully mail sent: ${info}`)
-            }
-        })
-
 
 
         return res.status(200).send({
