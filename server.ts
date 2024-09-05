@@ -24,7 +24,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 app.use(morgan('tiny'));
 
-// Cron job to ping the server every 30 seconds
+// Cron job to ping the server every 15min
 cron.schedule('*/15 * * * *', async () => {
     try {
         const response = await axios.get(serverUrl);
